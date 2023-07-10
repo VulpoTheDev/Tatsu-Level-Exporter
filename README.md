@@ -3,7 +3,7 @@ This script will get all the users from your discord server and simply calls the
 
 ## How to use
 1. Install the dependencies (`yarn install`)
-2. Modify the .env providing the token of your bot, guild id and the tastu API Key (This can be retreived via t!apikey create)
+2. Copy the .env.example into .env providing the token of your bot, guild id and the tastu API Key (This can be retreived via t!apikey create) along with the BASE APIs (Which are prefilled for you already)
 3. Let her rip (`yarn start`)
 
 ## Resources
