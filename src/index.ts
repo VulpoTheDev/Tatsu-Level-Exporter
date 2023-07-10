@@ -1,6 +1,6 @@
 import { GuildMembers, TatsuMember } from "./types";
 import fs from "fs";
-import { guildRequestCall, memberRequestCall, tatsuRequestCall } from './utils'
+import { delay, guildRequestCall, memberRequestCall, tatsuRequestCall, updateJSON } from './utils'
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -59,14 +59,16 @@ const extractLevels = async () => {
         failed.push(member.user.id);
         return
       }
+      updateJSON(member, profile);
     });
     after = listMembers[listMembers.length - 1].user.id;
-    await Promise.resolve(setTimeout(() => {}, 60000))
+    await delay()
+
   }
 
   if (failed.length > 0) {
     console.log(`Retrying ${failed.length} members in 1 minute`)
-    await Promise.resolve(setTimeout(() => {}, 60000))
+    await delay()
     failed.forEach(async (id) => {
       const memberRequest = await memberRequestCall(id)
       const member: GuildMembers = await memberRequest.json();

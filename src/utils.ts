@@ -44,3 +44,6 @@ export const updateJSON = (member: GuildMember, profile: TatsuMember) => {
   const update = JSON.stringify(data);
   fs.writeFileSync(file, update);
 };
+
+
+export const delay = (minute = 1) => new Promise(resolve => setTimeout(resolve, minute * 60000));
