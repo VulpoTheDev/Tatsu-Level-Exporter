@@ -86,7 +86,10 @@ const extractLevels = async () => {
       }
     })
   }
-  console.log(`Failed to fetch ${finalFail.length} members`)
+
+  if (finalFail.length > 0) {
+    console.log(`Failed to fetch ${finalFail.length} members`)
+  }
   console.log(`Finished fetching ${count} members`)
 };
 
